@@ -35,7 +35,7 @@ class HomeController extends Controller
 
     public function service()
     {
-        return view('frontend.pages.service');
+        return view('frontend.pages.services');
     }
 
     public function casestudy()

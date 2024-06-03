@@ -34,6 +34,7 @@ Route::get('/casestudy', [HomeController::class, 'casestudy'])->name('casestudy'
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
 Route::get('downloadPdf/{id}', [SettingController::class, 'downloadPdf'])->name('downloadPdf');
+Route::post('/store_contact', [HomeController::class, 'store_contact'])->name('store_contact');
 
 Route::group(['middleware' => 'auth'], function () {
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Customer;
 use App\Models\LatestNews;
 use App\Models\Package;
@@ -13,6 +14,7 @@ use App\Models\Setting;
 use App\Models\Team;
 use App\Models\Works;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -58,4 +60,22 @@ class HomeController extends Controller
     {
         return view('frontend.pages.pricing');
     }
+
+    public function store_contact(Request $request)
+    {    
+    $validated = $this->validate($request, [
+        'name' => 'nullable',
+        'email' => 'nullable',
+        'subject' => 'nullable',
+        'message' => 'nullable',      
+    ]); 
+    $contact =Contact::query()->create([
+        'name' =>$validated['name'],
+        'email' =>$validated['email'],
+        'subject' =>$validated['subject'],
+        'message' => $validated['message'],      
+    ]);   
+    Session::flash('success', 'Message Send Successfully!');
+    return redirect()->back();   
+}
 }

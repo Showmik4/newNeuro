@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/department_services/{id}', [HomeController::class, 'services'])->name('department_services');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/services', [HomeController::class, 'service'])->name('service');
 Route::get('/casestudy', [HomeController::class, 'casestudy'])->name('casestudy');

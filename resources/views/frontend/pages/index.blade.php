@@ -52,28 +52,27 @@
     <!-- ======= Services Section ======= -->
     <section id="service" class="services pt-0">
         <div class="container" data-aos="fade-up">
-
             <div class="section-header">
-                <span>Our Services</span>
-                <h2>Our Services</h2>
-
+                <span>Department</span>
+                <h2>Department</h2>
             </div>
-
             <div class="row gy-4">
                 @foreach ($work as $item)
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="{{ asset('public/frontend/assets/img/cargo-service.jpg')}}" alt=""
-                                class="img-fluid">
+                    <a href="{{ route('department_services', ['id' => $item->id]) }}">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="{{ asset('public/frontend/assets/img/cargo-service.jpg')}}" alt=""
+                                    class="img-fluid">
+                            </div>
+                            <h3><a href="{{ route('department_services', ['id' => $item->id]) }}"
+                                    class="stretched-link">{{$item->title}}</a></h3>
+                            <p>{{$item->description}}</p>
                         </div>
-                        <h3><a href="service-details.html" class="stretched-link">{{$item->title}}</a></h3>
-                        <p>{{$item->description}}</p>
-                    </div>
+                    </a>
                 </div><!-- End Card Item -->
                 @endforeach
             </div>
-
         </div>
     </section><!-- End Services Section -->
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CaseStudy;
 use App\Models\Contact;
 use App\Models\Customer;
 use App\Models\LatestNews;
@@ -38,14 +39,16 @@ class HomeController extends Controller
         return view('frontend.pages.about', compact('document','latestAllNews','team'));
     }
 
-    public function service()
+    public function services($id)
     {
-        return view('frontend.pages.services');
+        $service=Service::query()->where('deptId',$id)->get();
+        return view('frontend.pages.services',compact('service'));
     }
 
     public function casestudy()
     {
-        return view('frontend.pages.casestudy');
+        $caseStudy=CaseStudy::all();
+        return view('frontend.pages.casestudy',compact('caseStudy'));
     }
 
     public function contact()

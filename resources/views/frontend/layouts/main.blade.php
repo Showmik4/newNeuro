@@ -20,9 +20,8 @@
                 <ul>
                     <li><a href="{{route('index')}}">Home</a></li>
                     <li><a href="{{route('about')}}" class="active">About</a></li>
-                    <li><a href="{{route('service')}}">Services</a></li>
-                    <li><a href="{{route('pricing')}}">Pricing</a></li>
-                    {{-- <li><a href="{{route('contact')}}">Contact</a></li> --}}
+
+                    <li><a href="{{route('casestudy')}}">Case Study</a></li> --}}
                     <li><a class="get-a-quote" href="{{route('contact')}}">Contact</a></li>
                 </ul>
             </nav><!-- .navbar -->

@@ -98,7 +98,7 @@ class SettingController extends Controller
         $setting->linkedin = $request->linkedin;
         $setting->youtube = $request->youtube;
         $setting->our_best_text = $request->our_best_text;
-        $setting->accomodation_text = $request->accomodation_text;
+     
         $setting->contact_page_text = $request->contact_page_text;
 
         $setting->google_map_link = $request->google_map_link;
@@ -133,41 +133,22 @@ class SettingController extends Controller
             $setting->our_best_image = $this->save_image('settingImage', $request->file('our_best_image'));
         }
 
-        if ($request->hasFile('video_section_image')) {
-            $setting->video_section_image = $this->save_image('settingImage', $request->file('video_section_image'));
-        }
+
 
         if ($request->hasFile('footer_image')) {
             $setting->footer_image = $this->save_image('settingImage', $request->file('footer_image'));
         }
 
-        if ($request->hasFile('room_page_background_image')) {
-            $setting->room_page_background_image = $this->save_image('settingImage', $request->file('room_page_background_image'));
-        }
 
         if ($request->hasFile('contact_page_bg_image')) {
             $setting->contact_page_bg_image = $this->save_image('settingImage', $request->file('contact_page_bg_image'));
         }
 
-        if ($request->hasFile('restaurent_bg_image')) {
-            $setting->restaurent_bg_image = $this->save_image('settingImage', $request->file('restaurent_bg_image'));
-        }
-
-        if ($request->hasFile('promotion_page_bg_image')) {
-            $setting->promotion_page_bg_image = $this->save_image('settingImage', $request->file('promotion_page_bg_image'));
-        }
 
         if ($request->hasFile('meta_logo')) {
             $setting->meta_logo = $this->save_image('settingImage', $request->file('meta_logo'));
         }
 
-        if ($request->hasFile('account_page_bg_image')) {
-            $setting->account_page_bg_image = $this->save_image('settingImage', $request->file('account_page_bg_image'));
-        }
-
-        if ($request->hasFile('sister_concern_logo')) {
-            $setting->sister_concern_logo = $this->save_image('settingImage', $request->file('sister_concern_logo'));
-        }
 
         if ($request->hasFile('company_document')) {
             $file = $request->file('company_document');

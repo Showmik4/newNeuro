@@ -45,6 +45,12 @@
                         </div>
 
                         <div class="form-group mt-2">
+                            <label>Image</label>
+                            <input name="image" id="" class="form-control" placeholder="Image" type="file" required>
+                            <span class="text-danger"> <b>{{ $errors->first('image') }}</b></span>
+                        </div>
+
+                        <div class="form-group mt-2">
                             <label>Status</label>
                             <select class="form-control" name="status" required>
                                 <option>Select Status</option>

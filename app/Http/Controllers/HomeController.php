@@ -6,6 +6,7 @@ use App\Models\CaseStudy;
 use App\Models\Contact;
 use App\Models\Customer;
 use App\Models\LatestNews;
+use App\Models\OurGoals;
 use App\Models\Package;
 use App\Models\Page;
 use App\Models\Reservation;
@@ -28,6 +29,7 @@ class HomeController extends Controller
     {
         $work=Works::all();
         $latestNews=LatestNews::all();
+       
         return view('frontend.pages.index',compact('work','latestNews'));
     }
 
@@ -36,7 +38,8 @@ class HomeController extends Controller
         $document = Setting::query()->first();
         $latestAllNews=LatestNews::all();
         $team=Team::all();
-        return view('frontend.pages.about', compact('document','latestAllNews','team'));
+        $ourGoals=OurGoals::all();
+        return view('frontend.pages.about', compact('document','latestAllNews','team','ourGoals'));
     }
 
     public function services($id)

@@ -200,15 +200,6 @@
                         </div>
 
                         <div class="form-group mb-2">
-                            <label class="form-label">Accomodation Text</label>
-                            <textarea class="form-control" type="text" name="accomodation_text"
-                                placeholder="Our Best Text" id="">{{ @$setting->accomodation_text }}</textarea>
-                            @if ($errors->has('accomodation_text'))
-                            <span class="text-danger"><strong>{{ $errors->first('accomodation_text') }}</strong> </span>
-                            @endif
-                        </div>
-
-                        <div class="form-group mb-2">
                             <label class="form-label">Our Best Text</label>
                             <textarea class="form-control" type="text" name="our_best_text" id="our_best_text"
                                 placeholder="Our Best Text" id="">{{ @$setting->our_best_text }}</textarea>

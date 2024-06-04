@@ -49,6 +49,20 @@
                         </div>
 
                         <div class="form-group mb-2">
+                            <label class="form-label">Image</label>
+                            <input class="form-control" type="file" name="image">
+                            @if ($errors->has('image'))
+                            <span class="text-danger"><strong>{{ $errors->first('image') }}</strong> </span>
+                            @endif
+                        </div>
+
+                        @if(isset($works->image))
+                        <div class="mb-3">
+                            <img height="100px" width="100px" src="{{ url(@$works->image) }}" alt="">
+                        </div>
+                        @endif
+
+                        <div class="form-group mb-2">
                             <label class="form-label">Status</label>
                             <select name="status" id="" class="form-control">
                                 <option value="">Select status</option>

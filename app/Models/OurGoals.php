@@ -13,6 +13,6 @@ class OurGoals extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'title', 'description', 'status',
+        'title', 'description', 'status','image',
     ];
 }

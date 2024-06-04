@@ -53,7 +53,8 @@
                 },
                 columns: [
                     {title: 'Title', data: 'title', name: 'title', className: "text-center", orderable: true, searchable: true},
-                    {title: 'Description', data: 'description', name: 'description', className: "text-center", orderable: false, searchable: false},                  
+                    {title: 'Description', data: 'description', name: 'description', className: "text-center", orderable: false, searchable: false},   
+                    {title: 'Image', data: 'image', name: 'image', className: "text-center", orderable: false, searchable: false},                 
                     {title: 'Action', className: "text-center", data: function (data) {
                             return '<a title="edit" class="btn btn-warning btn-sm" data-panel-id="' + data.id + '" onclick="editGoals(this)"><i class="fas fa-edit"></i></a>'+
                                 ' <a title="delete" class="btn btn-danger btn-sm" data-panel-id="' + data.id + '" onclick="deleteGoals(this)"><i class="fas fa-trash"></i></a>';
@@ -63,13 +64,13 @@
             });
         });
 
-        function editDepartment(x) {
+        function editGoals(x) {
             var btn = $(x).data('panel-id');
             var url = '{{route("goals.edit", ":id") }}';
             window.location.href = url.replace(':id', btn);
         }
 
-        function deleteDepartment(x) {
+        function deleteGoals(x) {
             var id = $(x).data('panel-id');
             if(!confirm("Delete Goals?")){
                 return false;

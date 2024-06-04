@@ -25,8 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        return view('frontend.pages.index');
+        $work=Works::all();
+        $latestNews=LatestNews::all();
+        return view('frontend.pages.index',compact('work','latestNews'));
     }
 
     public function about()

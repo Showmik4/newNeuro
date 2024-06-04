@@ -46,19 +46,17 @@
                     <img src="{{ asset('public/frontend/assets/img/features-4.jpg')}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-md-7">
-                    <h3>Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in</h3>
+                    <h3>{{@$setting->home_banner_large_text}}</h3>
                     <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua.
+                        {{@$setting->home_banner_small_text}}
                     </p>
-                    <p>
+                    {{-- <p>
                         Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
                         in voluptate
                         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                         proident, sunt in
                         culpa qui officia deserunt mollit anim id est laborum
-                    </p>
+                    </p> --}}
                 </div>
 
             </div><!-- Features Item -->

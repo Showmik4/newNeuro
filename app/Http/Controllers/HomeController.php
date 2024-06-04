@@ -33,7 +33,9 @@ class HomeController extends Controller
     public function about()
     {
         $document = Setting::query()->first();
-        return view('frontend.pages.about', compact('document'));
+        $latestAllNews=LatestNews::all();
+        $team=Team::all();
+        return view('frontend.pages.about', compact('document','latestAllNews','team'));
     }
 
     public function service()

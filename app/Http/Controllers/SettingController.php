@@ -80,9 +80,6 @@ class SettingController extends Controller
             'logo_1' => 'nullable|image|mimes:jpeg,png,jpg',
             'logo_2' => 'nullable|image|mimes:jpeg,png,jpg',
         ]);
-
-
-
         $setting = Setting::first();
         $setting->companyName = $request->companyName;
         $setting->email = $request->email;
@@ -98,11 +95,8 @@ class SettingController extends Controller
         $setting->linkedin = $request->linkedin;
         $setting->youtube = $request->youtube;
         $setting->our_best_text = $request->our_best_text;
-        $setting->case_study_banner_large_text = $request->case_study_banner_large_text;
-       
-     
+        $setting->case_study_banner_large_text = $request->case_study_banner_large_text;           
         $setting->contact_page_text = $request->contact_page_text;
-
         $setting->google_map_link = $request->google_map_link;
         $setting->home_banner_small_text = $request->home_banner_small_text;
         $setting->home_banner_large_text = $request->home_banner_large_text;
@@ -121,8 +115,6 @@ class SettingController extends Controller
             $setting->homepage_our_vision_image = $this->save_image('settingImage', $request->file('homepage_our_vision_image'));
         }
 
-
-
         if ($request->hasFile('logo_1')) {
             $setting->logo_1 = $this->save_image('settingImage', $request->file('logo_1'));
         }
@@ -135,17 +127,13 @@ class SettingController extends Controller
             $setting->our_best_image = $this->save_image('settingImage', $request->file('our_best_image'));
         }
 
-
-
         if ($request->hasFile('footer_image')) {
             $setting->footer_image = $this->save_image('settingImage', $request->file('footer_image'));
         }
 
-
         if ($request->hasFile('contact_page_bg_image')) {
             $setting->contact_page_bg_image = $this->save_image('settingImage', $request->file('contact_page_bg_image'));
         }
-
 
         if ($request->hasFile('meta_logo')) {
             $setting->meta_logo = $this->save_image('settingImage', $request->file('meta_logo'));
@@ -159,51 +147,36 @@ class SettingController extends Controller
             $setting->about_banner_image  = $this->save_image('settingImage', $request->file('about_banner_image'));
         }
 
-
+        if ($request->hasFile('service_banner_image')) {
+            $setting->service_banner_image  = $this->save_image('settingImage', $request->file('service_banner_image'));
+        }
 
         if ($request->hasFile('company_document')) {
             $file = $request->file('company_document');
 
-            if ($file->isValid()) {
-                // Generate a unique filename
+            if ($file->isValid()) {          
                 $filename = time() . '.' . $file->getClientOriginalExtension();
-
-                // Move the file to the desired location
-                $file->move(public_path('settingImage'), $filename);
-
-                // Save the file path to the database
+             
+                $file->move(public_path('settingImage'), $filename);             
 
                 $setting->company_document = $filename;
                 $setting->save();
             }
         }
-
-
-
         $setting->save();
-
         Session::flash('success', 'Settings Updated Successfully');
         return redirect()->route('setting.show');
     }
 
 
     public function downloadPdf($id)
-    {
-        // Retrieve the document from the database
-        $document = Setting::findOrFail($id);
-
-        // Get the file path
-        $filePath = public_path('settingImage/' . $document->company_document);
-
-        // Check if the file exists
+    {      
+        $document = Setting::findOrFail($id);       
+        $filePath = public_path('settingImage/' . $document->company_document);      
         if (!file_exists($filePath)) {
             abort(404, 'File not found');
-        }
-
-        // Read the file contents
-        $fileContents = file_get_contents($filePath);
-
-        // Return the file contents in the response
+        }      
+        $fileContents = file_get_contents($filePath);      
         return response($fileContents)->header('Content-Type', 'application/pdf');
     }
 }

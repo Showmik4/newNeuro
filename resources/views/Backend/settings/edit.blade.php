@@ -383,6 +383,21 @@
                         @endif
 
                         <div class="form-group mb-2">
+                            <label class="form-label">Service Banner Image</label>
+                            <input class="form-control" type="file" name="service_banner_image">
+                            @if ($errors->has('service_banner_image'))
+                            <span class="text-danger"><strong>{{ $errors->first('service_banner_image')
+                                    }}</strong> </span>
+                            @endif
+                        </div>
+
+                        @if(isset($setting->service_banner_image))
+                        <div class="mb-3">
+                            <img height="100px" width="100px" src="{{ url(@$setting->service_banner_image) }}" alt="">
+                        </div>
+                        @endif
+
+                        <div class="form-group mb-2">
                             <label class="form-label">Footer Text</label>
                             <textarea class="form-control" type="text" name="footer_text" id="footer_text"
                                 placeholder="Footer Text" id="">{{ @$setting->footer_text }}</textarea>

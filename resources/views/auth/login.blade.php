@@ -186,7 +186,7 @@
     <footer class="footer footer-alt">
         <script>
             document.write(new Date().getFullYear())
-        </script> &copy; Developed by <a href="https://techcloudltd.com" target="_blank" class="text-white">Tech Cloud
+        </script> &copy; Developed by <a href="" target="_blank" class="text-white">Neuroverse
             Ltd.</a>
     </footer>
 

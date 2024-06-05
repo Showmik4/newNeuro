@@ -98,6 +98,8 @@ class SettingController extends Controller
         $setting->linkedin = $request->linkedin;
         $setting->youtube = $request->youtube;
         $setting->our_best_text = $request->our_best_text;
+        $setting->case_study_banner_large_text = $request->case_study_banner_large_text;
+       
      
         $setting->contact_page_text = $request->contact_page_text;
 
@@ -148,6 +150,15 @@ class SettingController extends Controller
         if ($request->hasFile('meta_logo')) {
             $setting->meta_logo = $this->save_image('settingImage', $request->file('meta_logo'));
         }
+
+        if ($request->hasFile('case_study_image')) {
+            $setting->case_study_image  = $this->save_image('settingImage', $request->file('case_study_image'));
+        }
+
+        if ($request->hasFile('about_banner_image')) {
+            $setting->about_banner_image  = $this->save_image('settingImage', $request->file('about_banner_image'));
+        }
+
 
 
         if ($request->hasFile('company_document')) {

@@ -15,23 +15,18 @@
             <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
                 <h2 data-aos="fade-up">{{@$setting->home_banner_large_text}}</h2>
                 <p data-aos="fade-up" data-aos-delay="100">{{@$setting->home_banner_small_text}}</p>
-
             </div>
-
             <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
                 <img src="{{ asset('public/frontend/assets/img/hero-img.svg')}}" class="img-fluid mb-3 mb-lg-0" alt="">
             </div>
-
         </div>
     </div>
 </section><!-- End Hero Section -->
 
 <main id="main">
-
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about pt-5">
         <div class="container" data-aos="fade-up">
-
             <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
                 <div class="col-md-5">
                     <img src="{{ url('/'.@$setting->homepage_our_mission_image) }}" class="img-fluid" alt="">
@@ -41,11 +36,8 @@
                     <p class="fst-italic">
                         {{@$setting->homepage_our_mission_small_text}}
                     </p>
-
                 </div>
-
             </div><!-- Features Item -->
-
         </div>
     </section><!-- End About Us Section -->
 
@@ -57,17 +49,16 @@
                 <h2>Department</h2>
             </div>
             <div class="row gy-4">
-                @foreach ($work as $item)
+                @foreach ($work as $workss)
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <a href="{{ route('department_services', ['id' => $item->id]) }}">
+                    <a href="{{ route('department_services', ['id' => $workss->id]) }}">
                         <div class="card">
                             <div class="card-img">
-                                <img src="{{ asset('public/frontend/assets/img/cargo-service.jpg')}}" alt=""
-                                    class="img-fluid">
+                                <img src="{{ url('/'. @$workss->dept_image) }}" alt="" class="img-fluid">
                             </div>
-                            <h3><a href="{{ route('department_services', ['id' => $item->id]) }}"
-                                    class="stretched-link">{{$item->title}}</a></h3>
-                            <p>{{$item->description}}</p>
+                            <h3><a href="{{ route('department_services', ['id' => $workss->id]) }}"
+                                    class="stretched-link">{{$workss->title}}</a></h3>
+                            <p>{{$workss->description}}</p>
                         </div>
                     </a>
                 </div><!-- End Card Item -->

@@ -9,22 +9,28 @@
 @endsection
 @section('main.content')
 <!-- ======= Hero Section ======= -->
-<section id="hero" class="hero d-flex align-items-center">
-    <div class="container">
-        <div class="row gy-4 d-flex justify-content-between">
-            <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                <h2 data-aos="fade-up">{{@$setting->home_banner_large_text}}</h2>
-                <p data-aos="fade-up" data-aos-delay="100">{{@$setting->home_banner_small_text}}</p>
-
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center"
+        style="background-image: url('{{ url('/'. $setting->case_study_image) }}')" ;>
+        <div class=" container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2>Case Study</h2>
+                    <p>{{@$setting->case_study_banner_large_text}}</p>
+                </div>
             </div>
-
-            <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-                <img src="{{ asset('public/frontend/assets/img/hero-img.svg')}}" class="img-fluid mb-3 mb-lg-0" alt="">
-            </div>
-
         </div>
     </div>
-</section><!-- End Hero Section -->
+    <nav>
+        <div class="container">
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li>Case Study</li>
+            </ol>
+        </div>
+    </nav>
+</div><!-- End Breadcrumbs -->
 
 <main id="main">
 

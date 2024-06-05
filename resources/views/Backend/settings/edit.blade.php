@@ -299,6 +299,49 @@
                             @endif
                         </div>
 
+
+                        <div class="form-group mb-2">
+                            <label class="form-label">Case Study Image</label>
+                            <input class="form-control" type="file" name="case_study_image">
+                            @if ($errors->has('case_study_image'))
+                            <span class="text-danger"><strong>{{ $errors->first('case_study_image')
+                                    }}</strong> </span>
+                            @endif
+                        </div>
+
+                        @if(isset($setting->case_study_image))
+                        <div class="mb-3">
+                            <img height="100px" width="100px" src="{{ url(@$setting->case_study_image) }}" alt="">
+                        </div>
+                        @endif
+
+                        <div class="form-group mb-2">
+                            <label class="form-label">About Banner Image</label>
+                            <input class="form-control" type="file" name="about_banner_image">
+                            @if ($errors->has('about_banner_image'))
+                            <span class="text-danger"><strong>{{ $errors->first('about_banner_image')
+                                    }}</strong> </span>
+                            @endif
+                        </div>
+
+                        @if(isset($setting->about_banner_image))
+                        <div class="mb-3">
+                            <img height="100px" width="100px" src="{{ url(@$setting->about_banner_image) }}" alt="">
+                        </div>
+                        @endif
+
+                        <div class="form-group mb-2">
+                            <label class="form-label">Case Study Large Text</label>
+                            <textarea class="form-control" type="text" name="case_study_banner_large_text" id=""
+                                placeholder="case study banner large text"
+                                id="">{{ @$setting->case_study_banner_large_text }}</textarea>
+                            @if ($errors->has('case_study_banner_large_text'))
+                            <span class="text-danger"><strong>{{ $errors->first('case_study_banner_large_text')
+                                    }}</strong>
+                            </span>
+                            @endif
+                        </div>
+
                         <div class="form-group mb-2">
                             <label class="form-label">Home Page Our Vision Large Text</label>
                             <textarea class="form-control" type="text" name="homepage_our_vision_large_text" id=""

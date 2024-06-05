@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CaseStudy;
 use App\Models\Contact;
 use App\Models\Customer;
+use App\Models\Department;
 use App\Models\LatestNews;
 use App\Models\OurGoals;
 use App\Models\Package;
@@ -27,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $work=Works::all();
+        $work=Department::all();
         $latestNews=LatestNews::all();
        
         return view('frontend.pages.index',compact('work','latestNews'));

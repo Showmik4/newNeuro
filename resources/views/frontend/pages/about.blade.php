@@ -109,10 +109,10 @@
                         <div class="member-content">
                             <h4>{{$teams->name}}</h4>
                             <span>{{$teams->designation}}</span>
-                            <p>
+                            {{-- <p>
                                 Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis
                                 quaerat qui aut aut aut
-                            </p>
+                            </p> --}}
                             <div class="social">
                                 <a href=""><i class="bi bi-twitter"></i></a>
                                 <a href=""><i class="bi bi-facebook"></i></a>

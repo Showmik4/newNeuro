@@ -23,27 +23,44 @@ class UserController extends Controller
 
     public function list()
     {
-        $users = User::with('user_type')->where('fkuserTypeId', 1)->get();
+        $users = User::query()->where('type', 'admin')->get();
         return datatables()->of($users)
-            ->addColumn('image', function (User $user) {
-                if (isset($user->image)) {
-                    return '<img src="' . url('public/user_image/' . $user->image) . '" border="0" width="50px" height="30px" class="img-rounded" align="center" alt="' . $user->alt_tag . '"/>';
-                }
 
-                return '';
-            })
-            ->addColumn('user_type', function (User $user) {
-                if ($user->fkuserTypeId !== null) {
-                    return $user->user_type->type_name;
-                }
-
-                return '';
-            })
             ->setRowAttr([
                 'align' => 'center',
             ])
-            ->rawColumns(['image', 'user_type'])
+         
             ->make(true);
+    }
+
+    public function create()
+    {
+        return view('Backend.user.create');
+    }
+
+    public function store(Request $data)
+    {
+        // dd($data->all());
+        // if (Gate::allows('user_list')) {
+        $this->validate($data, [
+            'name' => 'required',           
+            'phone' => 'required',
+            'password' => 'required|confirmed|min:4',
+            'address'=>'nullable',
+            // 'fkUserTypeId' => 'required',
+            'email' => 'required|unique:users,email'
+        ]);
+        $user = new User();
+        $user->name = $data->name;      
+        $user->email = $data->email;
+        $user->phone = $data->phone;
+        $user->address = $data->address;
+        $user->type = 'admin';
+        $user->password = Hash::make($data->password);
+        // $user->status='1';
+        $user->save();
+        Session::flash('success', 'user Created Successfully!');
+        return redirect()->route('user.show');
     }
 
     public function edit_profile($id)

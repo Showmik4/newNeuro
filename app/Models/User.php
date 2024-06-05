@@ -29,8 +29,7 @@ class User extends Authenticatable
         'password',
         'address',
         'type',
-        'status',
-        'customer_id'
+        'status',      
         ];
 
     /**
@@ -51,14 +50,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function reservations()
-    {
-        return $this->hasMany(Reservation::class, 'fkUserId', 'id');
-    }
-
-    public function customer()
-    {
-        return $this->belongsTo(Customer::class, 'fkUserId', 'id');
-    }
+  
 }

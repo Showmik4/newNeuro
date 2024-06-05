@@ -52,7 +52,7 @@ class LoginController extends Controller
 
         $user = User::query()->where('email', $request->email)->first();
 
-        if (!empty($user) && $user->type == 'admin') {
+        if (!empty($user)) {
             if (Hash::check($request->password, $user->password)) {
                 Auth::login($user, $request->has('remember'));
 

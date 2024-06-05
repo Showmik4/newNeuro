@@ -67,6 +67,13 @@
                         <span> Contact </span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{ route('user.show') }}">
+                        <i data-feather="message-square"></i>
+                        <span> Users </span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- End Sidebar -->

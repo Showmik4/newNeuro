@@ -62,19 +62,11 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('pricing.show') }}">
+                    <a href="{{ route('contact.show') }}">
                         <i data-feather="message-square"></i>
-                        <span> Pricing </span>
+                        <span> Contact </span>
                     </a>
                 </li>
-
-
-
-
-
-
-
-
             </ul>
         </div>
         <!-- End Sidebar -->

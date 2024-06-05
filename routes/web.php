@@ -7,6 +7,7 @@ use App\Http\Controllers\CaseStudyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
@@ -52,13 +53,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Department
     Route::group(['prefix' => 'department', 'as' => 'department.'], function () {
-        Route::get('/show', [WorkController::class, 'show'])->name('show');
-        Route::post('/list', [WorkController::class, 'list'])->name('list');
-        Route::get('create', [WorkController::class, 'create'])->name('create');
-        Route::post('store', [WorkController::class, 'store'])->name('store');
-        Route::get('edit/{id}', [WorkController::class, 'edit'])->name('edit');
-        Route::post('update/{id}', [WorkController::class, 'update'])->name('update');
-        Route::post('delete', [WorkController::class, 'delete'])->name('delete');
+        Route::get('/show', [DepartmentController::class, 'show'])->name('show');
+        Route::post('/list', [DepartmentController::class, 'list'])->name('list');
+        Route::get('create', [DepartmentController::class, 'create'])->name('create');
+        Route::post('store', [DepartmentController::class, 'store'])->name('store');
+        Route::get('edit/{id}', [DepartmentController::class, 'edit'])->name('edit');
+        Route::post('update/{id}', [DepartmentController::class, 'update'])->name('update');
+        Route::post('delete', [DepartmentController::class, 'delete'])->name('delete');
     });
 
     //Latest News
@@ -141,13 +142,7 @@ Route::group(['middleware' => 'auth'], function () {
     //Contact
     Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
         Route::get('/show', [ContactController::class, 'show'])->name('show');
-        Route::post('/list', [ContactController::class, 'list'])->name('list');
-        Route::get('/detail/{id}', [ContactController::class, 'detail'])->name('detail');
-        Route::get('create', [ContactController::class, 'create'])->name('create');
-        Route::post('store', [ContactController::class, 'store'])->name('store');
-        Route::get('edit/{id}', [ContactController::class, 'edit'])->name('edit');
-        Route::post('update/{id}', [ContactController::class, 'update'])->name('update');
-        Route::post('delete', [ContactController::class, 'delete'])->name('delete');
+        Route::post('/list', [ContactController::class, 'list'])->name('list');     
     });
 
     //About

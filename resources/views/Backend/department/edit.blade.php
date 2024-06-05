@@ -47,6 +47,19 @@
                                 name="description">{{ @$works->description }}</textarea>
                             <span class="text-danger"> <b>{{ $errors->first('description') }}</b></span>
                         </div>
+                        <div class="form-group mb-2">
+                            <label class="form-label">Image</label>
+                            <input class="form-control" type="file" name="dept_image">
+                            @if ($errors->has('dept_image'))
+                            <span class="text-danger"><strong>{{ $errors->first('dept_image') }}</strong> </span>
+                            @endif
+                        </div>
+
+                        @if(isset($works->dept_image))
+                        <div class="mb-3">
+                            <img height="100px" width="100px" src="{{ url(@$works->dept_image) }}" alt="">
+                        </div>
+                        @endif
 
                         <div class="form-group mb-2">
                             <label class="form-label">Status</label>

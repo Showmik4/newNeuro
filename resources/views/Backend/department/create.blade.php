@@ -26,13 +26,12 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
                 <form class="form" action="{{ route('department.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-body">
-
                         <div class="form-group mt-2">
                             <label>Title</label>
                             <input name="title" id="" class="form-control" placeholder="Title" required>
@@ -47,6 +46,13 @@
                         </div>
 
                         <div class="form-group mt-2">
+                            <label>Depart Image</label>
+                            <input name="dept_image" type="file" id="" class="form-control"
+                                placeholder="Department Image" required>
+                            <span class="text-danger"> <b>{{ $errors->first('dept_image') }}</b></span>
+                        </div>
+
+                        <div class="form-group mt-2">
                             <label>Status</label>
                             <select class="form-control" name="status" required>
                                 <option>Select Status</option>
@@ -57,8 +63,10 @@
                             <span class="text-danger"> <b>{{ $errors->first('status') }}</b></span>
                         </div>
 
+                        <hr>
+
                         <div class="multi-service">
-                            <h3 class="text-center">Team Services</h3>
+                            <h3 class="text-center">Department Services</h3>
                             <div class="form-group mb-2">
                                 <label class="form-label">Service Title</label>
                                 <input type="text" class="form-control" placeholder="Service Title"
@@ -148,6 +156,7 @@
                                 <span class="text-danger"> <b>{{ $errors->first('service_status') }}</b></span>
                             </div>                          
                         </div>
+                        <hr>
        `;
                 var newRowContainer = document.createElement("div");
                 newRowContainer.innerHTML = newRow;
